@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
-import Expense from "./pages/Auth/Dashboard/Expense";
-import Income from "./pages/Auth/Dashboard/Income";
-import Home from "./pages/Auth/Dashboard/Home";
+import Expense from "./pages/Dashboard/Expense";
+import Income from "./pages/Dashboard/Income";
+import Home from "./pages/Dashboard/Home";
 
 const App = () => {
   return (
