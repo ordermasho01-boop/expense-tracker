@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import { Link } from 'react-router-dom'
 import { validateEmail } from '../../utils/helper'
+import Profile from '../../components/Profile'
 
 const SignUp = () => {
      const [name, setName] = useState('')
@@ -31,6 +32,7 @@ const SignUp = () => {
         </p>
         <div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <Profile/>
                 <div className="flex flex-col gap-2 ">
                     <label htmlFor="name" className="text-slate-700">Full Name</label>
                     <input type="text" placeholder="johndoe" className="border rounded-md outline-none  px-4 py-3 bg-white text-xs" 
