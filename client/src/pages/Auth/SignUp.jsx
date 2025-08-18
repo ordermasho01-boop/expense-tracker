@@ -44,12 +44,12 @@ const SignUp = () => {
                     onChange={(e)=>setEmail(e.target.value)}/>
                 </div>
                 <div className="flex flex-col gap-2 ">
-                    <label htmlFor="password" className="text-slate-700 ">Password Address</label>
+                    <label htmlFor="password" className="text-slate-700 ">Password </label>
                     <input type="text" placeholder="min 6 character" className="border outline-none rounded-md px-4 py-3 bg-white text-sm"
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)} />
                 </div>
-                {error && <p>{error}</p>}
+                {error && <p className='text-red-600 text-sm'>{error}</p>}
                 <button type="submit" className="btn my-3">SignUp</button>
                 <p className="text-slate-600">Already have an Account? <Link to={'/login'} className="text-cyan-700 
                  pl-3">Login</Link></p>
