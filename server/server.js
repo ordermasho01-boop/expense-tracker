@@ -15,22 +15,16 @@ import express from 'express';
 
 const app =express()
 
-// app.use((req, res, next) => {
-//     console.log(`[Before CORS] Method: ${req.method}, URL: ${req.url}`);
-//     next();
-// });
-app.use(cors({
-    origin: 'https://improved-orbit-7vxgprp7jqg4cpqxp-5173.app.github.dev' ,
-    credentials: true,
-    optionsSuccessStatus: 204,
-    methods :['GET','POST',"PUT","DELETE","OPTIONS"],
-    allowedHeaders:["Content-Type","Accept", "Authorization", 'Acess-Control-Allow-Origin', 'X-Requesst-With'],
-    exposedHeaders: ['Content-Type','X-Content-Range']
-}));
-// app.use((req, res, next) => { 
-//     console.log(`[After CORS] Method: ${req.method}, URL: ${req.url}`); 
-//     next(); 
-// });
+ // Allow requests from specific origin
+   const allowedOrigins = [
+       'https://cuddly-parakeet-x5qpp5rq9jvvf9v5x-5173.app.github.dev'
+   ];
+
+   app.use(cors({
+       origin: allowedOrigins,
+       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+       credentials: true // if you need to send cookies or authorization headers
+   }));
 app.use(express.json()); 
 
 

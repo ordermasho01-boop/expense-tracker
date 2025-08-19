@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { validateEmail } from '../../utils/helper'
 import Profile from '../../components/Profile'
+import axiosInstance from '../../utils/axiosInstance'
+import { API_PATHS, BASE_URL } from '../../utils/apiPaths'
 
 const SignUp = () => {
-     const [name, setName] = useState('')
+     const [fullName, setFullName] = useState('')
      const [email, setEmail] = useState('')
         const [password, setPassword] = useState('')
         const [error, setError] = useState(null)
+        const navigate =useNavigate()
     
-            const handleSubmit =(e)=>{
+            const handleSubmit =async (e)=>{
                 e.preventDefault();
-                if(!email || !password ||!name){
+                if(!email || !password ||!fullName){
                     setError('All fields are required!')
                     return;
                 
@@ -22,6 +25,21 @@ const SignUp = () => {
                     return;
                 }
                 setError('');
+                try {
+                  const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {fullName, email, password});
+                  const {token, user} = response.data;
+
+                  if (token) {
+                    localStorage.setItem('token', token)
+                    navigate('/dashboard')
+                  }
+                } catch (error) {
+                 if (error.response && error.response.data.message) {
+                  setError(error.response.data.message)
+                 } else {
+                  setError('something went wrong please try again')
+                 }
+                }
             }
   return (
     <AuthLayout>
@@ -36,8 +54,8 @@ const SignUp = () => {
                 <div className="flex flex-col gap-2 ">
                     <label htmlFor="name" className="text-slate-700">Full Name</label>
                     <input type="text" placeholder="johndoe" className="border rounded-md outline-none  px-4 py-3 bg-white text-xs" 
-                    value={name}
-                    onChange={(e)=>setName(e.target.value)}/>
+                    value={fullName}
+                    onChange={(e)=>setFullName(e.target.value)}/>
                 </div>
                 <div className="flex flex-col gap-2 ">
                     <label htmlFor="email" className="text-slate-700">Email Address</label>
