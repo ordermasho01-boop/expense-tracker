@@ -5,22 +5,24 @@ import SignUp from "./pages/Auth/SignUp";
 import Expense from "./pages/Dashboard/Expense";
 import Income from "./pages/Dashboard/Income";
 import Home from "./pages/Dashboard/Home";
+import UserProvider from "./contexts/UserContext";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<Root />}>
+    <UserProvider>
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<Root />} />
             <Route path="/expense" element={<Expense />} />
             <Route path="/income" element={<Income />} />
             <Route path="/dashboard" element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </UserProvider>
   );
 };
 

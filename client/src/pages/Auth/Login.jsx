@@ -4,12 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { validateEmail } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+
 
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
     const navigate =useNavigate()
+    const {updateUser} =useContext(UserContext)
     const handleSubmit =async(e)=>{
         e.preventDefault();
        
@@ -30,6 +34,7 @@ const Login = () => {
 
           if(token){
             localStorage.setItem('token', token);
+            updateUser(user)
             navigate('/dashboard')
           }
         } catch (error) {
