@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import DashboardLayout from "../../components/layouts/DashboardLayout";
 
 const Home = () => {
   return (
-    <div className='bg-red-600 p-4 '>Home</div>
-  )
-}
+    <DashboardLayout activeMenu="Dashboard">
+      <div className="my5 mx-auto">
 
-export default Home
+      </div>
+    </DashboardLayout>
+  )
+};
+
+export default Home;
