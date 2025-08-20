@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <DashboardLayout activeMenu="Dashboard">
       <div className="my5 mx-auto">
-
+         home
       </div>
     </DashboardLayout>
   )

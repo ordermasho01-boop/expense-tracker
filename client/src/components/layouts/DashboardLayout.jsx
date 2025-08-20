@@ -3,6 +3,7 @@ import Navbar from '../Navbar'
 import { UserContext } from '../../contexts/UserContext'
 import Sidebar from '../Sidebar'
 
+
 const DashboardLayout = ({children, activeMenu}) => {
     const {user} = useContext(UserContext)
     

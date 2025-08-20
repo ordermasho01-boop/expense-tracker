@@ -1,7 +1,7 @@
 
 import colors from 'colors'
 import cors from "cors";
-import path from 'path'
+
 import 'dotenv/config'
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -23,7 +23,8 @@ const app =express()
    app.use(cors({
        origin: allowedOrigins,
        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-       credentials: true // if you need to send cookies or authorization headers
+       credentials: true,
+       maxAge: 3600 // if you need to send cookies or authorization headers
    }));
 app.use(express.json()); 
 
