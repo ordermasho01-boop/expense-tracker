@@ -4,15 +4,18 @@ import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
 import Expense from "./pages/Dashboard/Expense";
 import Income from "./pages/Dashboard/Income";
+
+
 import Home from "./pages/Dashboard/Home";
 import { UserProvider } from "./contexts/userContext";
+
 
 
 
 const App = () => {
   return (
     <UserProvider>
-      <div>
+      
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
@@ -23,7 +26,7 @@ const App = () => {
             <Route path="/dashboard" element={<Home />} />
           </Routes>
         </BrowserRouter>
-      </div>
+     
     </UserProvider>
   );
 };

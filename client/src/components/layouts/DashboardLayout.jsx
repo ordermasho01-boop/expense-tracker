@@ -2,11 +2,12 @@ import React, { useContext } from 'react'
 import Navbar from '../Navbar'
 
 import Sidebar from '../Sidebar'
-import { UserContext } from '../../contexts/userContext'
+import { useAuth } from '../../contexts/userContext'
+
 
 
 const DashboardLayout = ({children, activeMenu}) => {
-    const {user} = useContext(UserContext)
+    const {user} = useAuth()
     
   return (
     <div>

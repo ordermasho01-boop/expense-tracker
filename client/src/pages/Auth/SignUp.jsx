@@ -5,8 +5,8 @@ import { validateEmail } from "../../utils/helper";
 import Profile from "../../components/Profile";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS, BASE_URL } from "../../utils/apiPaths";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/userContext";
+
+import { useAuth } from "../../contexts/userContext";
 
 
 const SignUp = () => {
@@ -15,7 +15,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const {updateUser} = useContext(UserContext);
+  const {updateUser} = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();

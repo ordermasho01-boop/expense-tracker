@@ -1,11 +1,14 @@
-import { useContext, useEffect } from "react"
-import { UserContext } from "../contexts/userContext"
+import { useEffect } from "react"
+
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import { API_PATHS } from "../utils/apiPaths";
+import { UserContext } from "../contexts/userContext";
+import { useContext } from "react";
+import { useAuth } from "../contexts/ContextData";
 
-export const useUserAuth = ()=>{
-    const [user, updateUser, clearUser] = useContext(UserContext);
+ const useUserAuth = ()=>{
+    const [user, updateUser, clearUser] = useAuth()
     const navigate =useNavigate();
 
     useEffect(()=>{
@@ -14,7 +17,8 @@ export const useUserAuth = ()=>{
         let isMounted = true;
         const fetchUserInfo = async () => {
             try {
-                const response = await axiosInstance.get(API_PATHS.AUTH.GET_USER)
+                const response = await axiosInstance.get(API_PATHS.AUTH.GET_USER);
+
                 if(isMounted && response.data){
                     updateUser(response.data);
                 }
@@ -33,3 +37,5 @@ export const useUserAuth = ()=>{
         }
     },[updateUser, clearUser,navigate])
 }
+
+export default useUserAuth;

@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+
 
 import { useNavigate } from "react-router-dom";
 import { SIDE_BAR_DATA } from "../utils/data";
-import { UserContext } from "../contexts/userContext";
+import { useAuth} from "../contexts/userContext";
+
 const Sidebar = ({activeMenu}) => {
-  const { user, clearUser } = useContext(UserContext);
+  const { user, clearUser } = useAuth()
   const navigate = useNavigate();
 
   const handleClick = (route) => {
