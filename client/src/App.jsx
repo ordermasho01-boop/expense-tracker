@@ -5,7 +5,9 @@ import SignUp from "./pages/Auth/SignUp";
 import Expense from "./pages/Dashboard/Expense";
 import Income from "./pages/Dashboard/Income";
 import Home from "./pages/Dashboard/Home";
-import UserProvider from "./contexts/UserContext";
+import { UserProvider } from "./contexts/userContext";
+
+
 
 const App = () => {
   return (

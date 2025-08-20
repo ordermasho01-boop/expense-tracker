@@ -6,7 +6,8 @@ import Profile from "../../components/Profile";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS, BASE_URL } from "../../utils/apiPaths";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/userContext";
+
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");

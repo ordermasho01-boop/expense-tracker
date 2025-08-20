@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
+
 import { useNavigate } from "react-router-dom";
 import { SIDE_BAR_DATA } from "../utils/data";
+import { UserContext } from "../contexts/userContext";
 const Sidebar = ({activeMenu}) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();

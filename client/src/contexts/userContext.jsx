@@ -2,9 +2,11 @@ import { useState } from "react";
 import { createContext } from "react";
 
 
+
 export const UserContext = createContext();
 
-const UserProvider = ({children})=>{
+export const UserProvider = ({children})=>{
+  
   const [user, setUser]= useState(null)
 
   const updateUser = (userData)=>{
@@ -22,4 +24,3 @@ const UserProvider = ({children})=>{
  )
 }
 
-export default UserProvider;
