@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
 import { validateEmail } from "../../utils/helper";
 import Profile from "../../components/Profile";
 import axiosInstance from "../../utils/axiosInstance";
-import { API_PATHS, BASE_URL } from "../../utils/apiPaths";
+import { API_PATHS } from "../../utils/apiPaths";
 
-import { useAuth } from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
+
+
 
 
 const SignUp = () => {
@@ -15,7 +17,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const {updateUser} = useAuth()
+  const {updateUser} = useContext(UserContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
